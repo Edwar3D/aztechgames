@@ -1,0 +1,29 @@
+@layout('master')
+@section('content')
+<div class="row txtarea">
+    <div class="col-12 ">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 shadow bg-white mt-5 rounded p-3">
+                    <br>
+    
+                <div class="clear-fix"></div>
+                    <form method="POST" action="/update-message/{{message.id}}">
+                        {{ csrfField() }}
+                        <div class="form-group">
+                            <label for="quote">Editar un cometario {{message.body}}</label>
+                            <textarea type="text" rows="5"  name='body' id="body" class="form-control" id="quote" placeholder="Envia un comentario con tu queja o recomendación">
+                                {{message.body}}
+                            </textarea>
+                        </div>
+    
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+            <div class="col-md-1"></div>
+    </div>
+</div>
+@endsection

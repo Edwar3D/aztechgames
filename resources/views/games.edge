@@ -1,0 +1,37 @@
+@layout('master')
+@section('content')
+
+<div class="container games">
+    <div class="row text-left title">
+        <h1>Juegos Disponibles</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="card" >
+                <img class="card-img" src="{{ assetsUrl('jake_attack_presentation.jpg') }}" alt="img">
+               
+                <div class="card-body">
+                  <h5 class="card-title">Jake The Dog: The Attack</h5>
+                  <p class="card-text">Jake el perro busca llegar al reino del rey Helado,¿podrás acabar con todos ellos mientras proteges tu reino?.</p>
+                  <a href="#" class="btn btn-primary">Descargar Juego</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-3">
+            <div class="card" >
+                <img class="card-img" src="{{ assetsUrl('3Dworld.png') }}" alt="img">
+               
+                <div class="card-body">
+                  <h5 class="card-title">3D World</h5>
+                  <p class="card-text">Pasa horas descubiendo y divirtiendote en este juego 3D, como caballero que queriendo explorar el mundo </p>
+                  <a href="#" class="btn btn-primary">Descargar Juego</a>
+                </div>
+              </div>
+        </div>
+    
+
+    </div>
+
+</div>
+
+@endsection

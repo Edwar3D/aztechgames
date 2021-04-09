@@ -1,0 +1,34 @@
+@layout('master')
+@section('content')
+<div class="container">
+    <div class="row text-center title">
+    <div class="logo-presentacion">
+        <img src="{{ assetsUrl('logo_blanco.png') }}" alt="" class="d-inline-block align-text-top">
+    </div>
+    </div>
+    <div class="row text-center title">
+        <h2 class="col-12">"Nos encargamos de hacer tus ideas realidad"</h2>
+        
+    </div>
+    <div class="row text-left title">
+        <h3>Integrantes</h1>
+            <br>
+            <br>
+    </div>
+    <div class="row integrante">
+        <div class="col-6 text-center">
+            <img src="{{ assetsUrl('CDCC.jpg') }}" alt="" class="img-integrante">
+            <div class="card-body">
+                <h5 >Carlos Daniel Cruz Caballero</h5>
+              </div>
+        </div>
+        
+        <div class="col-6  text-center">
+            <img src="{{ assetsUrl('EMDD.jpg') }}" alt="" class="img-integrante"">
+            <div class="card-body">
+                <h5 >Eduardo Marcelino Diaz Diaz</h5>
+              </div>
+        </div>        
+    </div>
+</div>
+@endsection

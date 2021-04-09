@@ -1,0 +1,79 @@
+@layout('master')
+@section('content')
+<div class="container">
+    <div class="row">
+        <h4 class="title">Comentarios</h4>
+    </div>
+    
+    <div class="row">
+        <div class="text-center">
+            
+        </div>
+        <div class="container">
+            @each(message in messages)
+            <div class="row">
+                @if(auth.user.id == message.user_id)
+                <div class="col-md-6 col-sm-12">
+                </div>
+                @endif
+                <div class="col-md-6 col-sm-12 quote-wrapper">
+                    <a  class="w-100">
+                        <div class="card shadow-lg bg-dark text-white">
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p>{{message.body}}</p>
+                                    <footer class="blockquote-footer">
+                                        <cite title="Source Title"> {{message.username}}</cite>
+                                    </footer>
+                                </blockquote>
+                                @if(auth.user.id == message.user_id)
+                                <div>
+                                    <a href="/edit-message/{{message.id}}" class="btn btn-primary">edit</a>
+                                    <a href="/delete-message/{{message.id}}" class="btn btn-danger">delete</a>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @if(auth.user.id != message.user_id)
+                <div class="col-md-6 col-sm-12">
+                </div>
+                @endif
+            </div>
+            @else
+            <div class="col-md-12 empty-quote text-center text-light">
+                    <p>Todavia no hay ningun comentario</p>
+            </div>
+            @endeach
+        </div>
+    </div>
+
+    @loggedIn
+    <div class="row txtarea">
+        <div class="col-12 ">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 shadow bg-white mt-5 rounded p-3">
+                        <br>
+        
+                    <div class="clear-fix"></div>
+                        <form method="POST" action="{{route('store.message')}}">
+                            {{ csrfField() }}
+                            <div class="form-group">
+                                <label for="quote">Crear un cometario</label>
+                                <textarea type="text" rows="5"  name='body' id="body" class="form-control" id="quote" placeholder="Envia un comentario con tu queja o recomendación"></textarea>
+                            </div>
+        
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+                <div class="col-md-1"></div>
+        </div>
+    </div>
+    @endloggedIn
+</div>
+@endsection
